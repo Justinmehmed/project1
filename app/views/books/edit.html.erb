@@ -1,7 +1,9 @@
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
-<%= f.select :category_id, @categories %>
-<%= f.input :title, label: "Book Title" %>
-<%= f.input :description %>
-<%= f.input :author %>
-<%= f.button :submit %>
+    <%= f.select :category_id, @categories %>
+    <%= f.input :title, label: "Book Title" %>
+    <%= f.input :description %>
+    <%= f.input :author %>
+    <%= f.label "Cover:" %>
+    <%= f.cl_image_upload :image %>
+    <%= f.button :submit %>
 <% end %>
