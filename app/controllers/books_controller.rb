@@ -36,7 +36,7 @@ class BooksController < ApplicationController
                 current_user.books << book
             # book = @current_user.books.build(book_params)
             book.category_id = params[:category_id]
-
+        
             if book.save 
                 redirect_to root_path
              else 
