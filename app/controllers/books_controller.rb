@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
     before_action :find_book, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new, :edit]
+    
     def index
         if params[:category].blank?
         @books = Book.all.order("created_at DESC")
@@ -46,12 +47,17 @@ class BooksController < ApplicationController
 
 
     def edit
-
+        
         @categories = Category.all.map{ |c| [c.name, c.id,] }
     end
 
     def update
         @book.category_id = params[:category_id]
+        if params[:file].present?
+            req = Cloudinary::Uploader.upload(params[:file])
+            @book.image = req["public_id"]
+        end
+        @book.save
         if @book.update(book_params)
             redirect_to book_path(@book)
         else
