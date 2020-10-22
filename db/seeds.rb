@@ -1,7 +1,7 @@
 User.destroy_all
 u1 = User.create(:email => "Justin@ga", :password => "chicken")
 u2 = User.create(:email => "Joel@ga", :password => "chicken")
-u2 = User.create(:email => "Camilla@ga", :password => "chicken")
+u3 = User.create(:email => "Camilla@ga", :password => "chicken")
 
 puts "#{ User.count }"
 
