@@ -14,18 +14,16 @@
              <% if @book.category.present?%>
               <h4>Genre: <%=@book.category.name %></h4>
              <% end %>
-          <%# setting up the average rating users give a book  %>
-          <h2>Average Rating </h2>
-            <div class="average-review-rating" data-score=<%= @average_review %>></div>
+                 <%# setting up the average rating users give a book  %>
+                <h2>Average Rating </h2>
+         <div class="average-review-rating" data-score=<%= @average_review %>></div>
 		      	<span class="number-of-reviews">Based on <%= @book.reviews.count %> reviews</span>
                <br>
                <br>
-           <p class="book-desc"><%= @book.description %></p>
+               <p class="book-desc"><%= @book.description %></p>
 
 	      </div>  
 	   </div>
-
-
 </div>
 
 <div class="row">
@@ -34,7 +32,7 @@
     
 		 <div class="reviews">
 		  	<h1>Reviews</h1>
-        <%= render @book.reviews %>
+            <%= render @book.reviews %>
 
         <div>
             <%= link_to "Add Review", new_book_review_path(@book), class: "btn btn-custom"%>
@@ -45,7 +43,7 @@
   </div>
     
 </div>
-<br>
+ <br>
 <div class="links btn-group">
 
     <%= link_to "Back", root_path, class: "btn btn-custom" %>
@@ -54,8 +52,8 @@
 
            <% if @book.user_id == current_user.id%>
 
-            <%= link_to "Edit", edit_book_path(@book), class: "btn btn-custom" %>
-            <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm:"Are You Sure?"}, class: "btn btn-custom" %>
+             <%= link_to "Edit", edit_book_path(@book), class: "btn btn-custom" %>
+             <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm:"Are You Sure?"}, class: "btn btn-custom" %>
 
            <% end %>
         <% end %>

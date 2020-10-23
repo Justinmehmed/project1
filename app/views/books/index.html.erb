@@ -1,16 +1,16 @@
 <h1 class="current-category"><%= params[:category] %></h1>
 
 <% if @books.count == 0 %>
-<h1> There are no books currently in this genre </h1>
-<% else %>
+  <h1> There are no books currently in this genre </h1>
+  <% else %>
 
-<% @books.each do |book| %>
+      <% @books.each do |book| %>
   
-  <a href="/books/<%= book.id %>">
-  <%= link_to cl_image_tag(book.image, :class => 'thumb', :alt => book.title),book %>
+       <a href="/books/<%= book.id %>">
+       <%= link_to cl_image_tag(book.image, :class => 'thumb', :alt => book.title),book %>
    
         
-        <% end %>
-    <% end %>
+  <% end %>
+ <% end %>
 
 
